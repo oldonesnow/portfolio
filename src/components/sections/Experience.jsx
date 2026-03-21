@@ -6,10 +6,10 @@ export default function Experience() {
   return (
     <SectionWrapper id="experience" className="bg-white">
       <div className="mb-12">
-        <p className="font-mono text-sm text-accent tracking-widest uppercase mb-3">
+        <p className="font-mono text-base text-yellow-600 tracking-widest uppercase mb-3">
           Work History
         </p>
-        <h2 className="font-sans text-5xl font-bold text-charcoal">
+        <h2 className="font-sans text-6xl font-bold text-charcoal">
           Experience
         </h2>
       </div>

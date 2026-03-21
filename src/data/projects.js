@@ -2,7 +2,8 @@ export const projects = [
   {
     id: 1,
     title: "Ransomware Threat Intelligence Research",
-    description: "Primary research analysing 665 victims across four ransomware groups (Jan–Aug 2024), identifying targeting trends, data exfiltration patterns, and mapping attacker behaviours to the MITRE ATT&CK framework.",
+    description:
+      "Primary research analysing 665 victims across four ransomware groups (Jan–Aug 2024), identifying targeting trends, data exfiltration patterns, and mapping attacker behaviours to the MITRE ATT&CK framework.",
     type: "security",
     depth: "deep-dive",
     year: "2025",
@@ -12,6 +13,7 @@ export const projects = [
       "Identified sector and geographic targeting trends across 665 confirmed victims",
       "Mapped TTPs to MITRE ATT&CK — initial access, exfiltration, and impact phases",
     ],
+    images: [],
     github: null,
     live: null,
     writeup: null,
@@ -20,12 +22,19 @@ export const projects = [
   {
     id: 2,
     title: "TISC CTF 2025",
-    description: "Participated in TISC, a Singapore CTF focused on exploitation and attack simulation. Completed challenges spanning web exploitation, reverse engineering, and network analysis.",
+    description:
+      "Participated in TISC, a Singapore CTF focused on exploitation and attack simulation. Completed challenges spanning web exploitation, reverse engineering, and network analysis.",
     type: "security",
     depth: "deep-dive",
     year: "2025",
-    tags: ["CTF", "Web Exploitation", "Reverse Engineering", "Network Analysis"],
+    tags: [
+      "CTF",
+      "Web Exploitation",
+      "Reverse Engineering",
+      "Network Analysis",
+    ],
     methodology: null,
+    images: [],
     github: null,
     live: null,
     writeup: null,
@@ -34,12 +43,14 @@ export const projects = [
   {
     id: 3,
     title: "LLM Fine-Tuning Research",
-    description: "Research into fine-tuning large language models for domain-specific tasks, exploring training methodology, dataset curation, and evaluation of model performance.",
+    description:
+      "Research into fine-tuning large language models for domain-specific tasks, exploring training methodology, dataset curation, and evaluation of model performance.",
     type: "ml",
     depth: "deep-dive",
     year: "2025",
     tags: ["LLM", "Fine-Tuning", "Python", "Machine Learning", "NLP"],
     methodology: null,
+    images: [],
     github: null,
     live: null,
     writeup: null,
@@ -48,12 +59,14 @@ export const projects = [
   {
     id: 4,
     title: "ParkSG — Parking Availability App",
-    description: "Full-stack web application providing real-time parking availability for cars and motorcycles across Singapore, with geolocation and advanced filtering.",
+    description:
+      "Full-stack web application providing real-time parking availability for cars and motorcycles across Singapore, with geolocation and advanced filtering.",
     type: "engineering",
     depth: "card",
     year: "2024",
     tags: ["React", "Node.js", "Firebase", "REST API", "Geolocation"],
     methodology: null,
+    images: ["/public/projects/parksg-1.png", "/public/projects/parksg-2.png"],
     github: null,
     live: null,
     writeup: null,
@@ -62,12 +75,14 @@ export const projects = [
   {
     id: 5,
     title: "Book Recommendation System",
-    description: "Flask web application that recommends books based on individual user preferences and reading history using collaborative filtering.",
+    description:
+      "Flask web application that recommends books based on individual user preferences and reading history using collaborative filtering.",
     type: "engineering",
     depth: "card",
     year: "2024",
     tags: ["Flask", "Python", "Machine Learning", "HTML", "CSS"],
     methodology: null,
+    images: [],
     github: null,
     live: null,
     writeup: null,
@@ -76,15 +91,23 @@ export const projects = [
   {
     id: 6,
     title: "Film Profitability Predictor",
-    description: "Predictive model assessing film profitability by analysing cast, budget, genre, and audience ratings using Logistic Regression and Random Forest classifiers.",
+    description:
+      "Predictive model assessing film profitability by analysing cast, budget, genre, and audience ratings using Logistic Regression and Random Forest classifiers.",
     type: "ml",
     depth: "card",
     year: "2024",
-    tags: ["Python", "Scikit-learn", "Random Forest", "Logistic Regression", "Data Analysis"],
+    tags: [
+      "Python",
+      "Scikit-learn",
+      "Random Forest",
+      "Logistic Regression",
+      "Data Analysis",
+    ],
     methodology: null,
+    images: [],
     github: null,
     live: null,
     writeup: null,
     featured: false,
   },
-]
+];

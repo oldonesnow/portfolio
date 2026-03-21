@@ -5,7 +5,10 @@ export const certifications = [
     issuer: "SANS / GIAC",
     issued: "September 2025",
     status: "active",
-    verify: "https://www.credly.com/badges/63254e6d-10ca-468d-8666-8c083460bbd4/public_url",
+    logo: "/certs/gpen.png",
+    logoSize: "p-1",
+    verify:
+      "https://www.credly.com/badges/63254e6d-10ca-468d-8666-8c083460bbd4/public_url",
   },
   {
     id: 2,
@@ -13,7 +16,10 @@ export const certifications = [
     issuer: "GitHub",
     issued: "June 2025",
     status: "active",
-    verify: "https://www.credly.com/badges/74bee0ae-da46-44f3-9307-bf4f2e2c5c49/public_url",
+    logo: "/certs/ghas.png",
+    logoSize: "p-1",
+    verify:
+      "https://www.credly.com/badges/74bee0ae-da46-44f3-9307-bf4f2e2c5c49/public_url",
   },
   {
     id: 3,
@@ -21,7 +27,10 @@ export const certifications = [
     issuer: "Google",
     issued: "October 2024",
     status: "active",
-    verify: "https://www.credly.com/badges/4fede4b7-f556-473a-a9b1-506e048f72f3/public_url",
+    logo: "/certs/google-cyber.png",
+    logoSize: "p-0",
+    verify:
+      "https://www.credly.com/badges/4fede4b7-f556-473a-a9b1-506e048f72f3/public_url",
   },
   {
     id: 4,
@@ -29,7 +38,10 @@ export const certifications = [
     issuer: "Google",
     issued: "November 2024",
     status: "active",
-    verify: "https://www.credly.com/badges/141a215a-6164-4521-8697-b32b312ebf64/public_url",
+    logo: "/certs/google-data.png",
+    logoSize: "p-0",
+    verify:
+      "https://www.credly.com/badges/141a215a-6164-4521-8697-b32b312ebf64/public_url",
   },
   {
     id: 5,
@@ -37,6 +49,8 @@ export const certifications = [
     issuer: "Offensive Security",
     issued: null,
     status: "in-progress",
+    logo: "/certs/oscp.jpg",
+    logoSize: "p-0",
     verify: null,
   },
-]
+];
