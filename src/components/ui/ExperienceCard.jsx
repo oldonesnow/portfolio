@@ -11,7 +11,8 @@ export default function ExperienceCard({ job, index }) {
         ease: [0.22, 1, 0.36, 1],
       }}
       viewport={{ once: true, margin: "-60px" }}
-      className="border border-gray-200 rounded-lg p-8 mb-6 hover:border-accent transition-colors duration-300 bg-base"
+      className="dark-card border border-gray-200 rounded-lg p-8 hover:border-accent transition-colors duration-300"
+      style={{ boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}
     >
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
         <div>
@@ -50,7 +51,7 @@ export default function ExperienceCard({ job, index }) {
         {job.tags.map((tag) => (
           <span
             key={tag}
-            className="font-mono text-sm px-2 py-1 bg-surface text-muted border border-gray-200 rounded"
+            className="font-mono text-sm px-2 py-1 border border-gray-300 text-muted rounded"
           >
             {tag}
           </span>

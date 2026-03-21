@@ -2,23 +2,48 @@ import { useEffect, useState } from "react";
 import { meta } from "../../data/meta";
 
 const navLinks = [
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Credentials", href: "#certifications" },
-  { label: "Skills", href: "#skills" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Experience", href: "#experience", id: "experience" },
+  { label: "Projects", href: "#projects", id: "projects" },
+  { label: "Credentials", href: "#certifications", id: "certifications" },
+  { label: "Skills", href: "#skills", id: "skills" },
+  { label: "About", href: "#about", id: "about" },
+  { label: "Contact", href: "#contact", id: "contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      setProgress((scrollTop / docHeight) * 100);
+      setScrolled(scrollTop > 80);
+
+      const sections = navLinks.map((link) => document.getElementById(link.id));
+      const current = sections.findIndex((section) => {
+        if (!section) return false;
+        const rect = section.getBoundingClientRect();
+        return rect.top <= 120 && rect.bottom >= 120;
+      });
+      setActiveSection(current >= 0 ? navLinks[current].id : "");
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setMenuOpen(false);
+  };
 
   return (
     <header
@@ -29,12 +54,19 @@ export default function Navbar() {
           : "bg-transparent")
       }
     >
+      {/* Scroll progress bar */}
+      <div
+        className="absolute top-0 left-0 h-0.5 bg-accent transition-all duration-150"
+        style={{ width: progress + "%" }}
+      />
+
       <nav className="px-6 md:px-16 lg:px-32 h-16 flex items-center justify-between">
         <a
           href="#"
+          onClick={(e) => handleNavClick(e, "#")}
           className="font-mono text-sm font-medium tracking-widest text-charcoal hover:text-accent transition-colors"
         >
-          LYX
+          Portfolio - Yi Xue
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
@@ -42,9 +74,18 @@ export default function Navbar() {
             <li key={link.label}>
               <a
                 href={link.href}
-                className="font-sans text-sm text-muted hover:text-charcoal transition-colors duration-200"
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={
+                  "font-sans text-sm transition-colors duration-200 " +
+                  (activeSection === link.id
+                    ? "text-accent font-medium"
+                    : "text-muted hover:text-charcoal")
+                }
               >
                 {link.label}
+                {activeSection === link.id && (
+                  <span className="block h-0.5 bg-accent mt-0.5 rounded-full" />
+                )}
               </a>
             </li>
           ))}
@@ -92,13 +133,17 @@ export default function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className="font-sans text-sm text-muted hover:text-charcoal transition-colors"
+              onClick={(e) => handleNavClick(e, link.href)}
+              className={
+                "font-sans text-sm transition-colors " +
+                (activeSection === link.id
+                  ? "text-accent font-medium"
+                  : "text-muted hover:text-charcoal")
+              }
             >
               {link.label}
             </a>
           ))}
-
           <a
             href={meta.resume}
             target="_blank"

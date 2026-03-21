@@ -11,7 +11,7 @@ export default function CertRow({ cert, index }) {
         ease: [0.22, 1, 0.36, 1],
       }}
       viewport={{ once: true, margin: "-60px" }}
-      className="flex flex-col md:flex-row md:items-center justify-between gap-4 px-6 py-6 bg-base hover:bg-surface transition-colors duration-200"
+      className="dark-card flex flex-col md:flex-row md:items-center justify-between gap-4 px-6 py-6 hover:bg-white/50 transition-colors duration-200"
     >
       <div className="flex items-center gap-5">
         {cert.logo ? (
@@ -21,7 +21,6 @@ export default function CertRow({ cert, index }) {
               (cert.logoSize || "p-1")
             }
           >
-            {" "}
             <img
               src={cert.logo}
               alt={cert.name}
@@ -29,7 +28,7 @@ export default function CertRow({ cert, index }) {
             />
           </div>
         ) : (
-          <div className="w-16 h-16 rounded-xl border border-gray-200 bg-surface shrink-0 flex items-center justify-center">
+          <div className="w-16 h-16 rounded-xl border border-gray-200 bg-white shrink-0 flex items-center justify-center">
             <span className="font-mono text-xs text-muted">CERT</span>
           </div>
         )}
