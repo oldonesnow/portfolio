@@ -3,9 +3,11 @@ import { meta } from "../../data/meta";
 
 const navLinks = [
   { label: "Experience", href: "#experience", id: "experience" },
+  { label: "Education", href: "#education", id: "education" },
   { label: "Projects", href: "#projects", id: "projects" },
   { label: "Credentials", href: "#certifications", id: "certifications" },
   { label: "Skills", href: "#skills", id: "skills" },
+  { label: "Blog", href: "#blog", id: "blog" },
   { label: "About", href: "#about", id: "about" },
   { label: "Contact", href: "#contact", id: "contact" },
 ];

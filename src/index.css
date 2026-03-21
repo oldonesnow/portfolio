@@ -93,3 +93,17 @@ body {
 .section-divider {
   display: none;
 }
+* {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 2L16 10L9 11L6 18L4 2Z' fill='%23111318' stroke='%23C8922A' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E")
+      4 2,
+    auto !important;
+}
+
+a,
+button {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M4 2L16 10L9 11L6 18L4 2Z' fill='%23C8922A' stroke='%23111318' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E")
+      4 2,
+    pointer !important;
+}

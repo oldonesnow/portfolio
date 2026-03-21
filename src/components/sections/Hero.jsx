@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { meta } from "../../data/meta";
 import { useParallax } from "../../hooks/useParallax";
+import { TypeAnimation } from "react-type-animation";
 
 const container = {
   hidden: {},
@@ -49,6 +50,9 @@ export default function Hero() {
         </svg>
       </div>
 
+      <div className="absolute top-32 right-24 w-64 h-64 rounded-full border border-accent opacity-10 pointer-events-none" />
+      <div className="absolute top-40 right-32 w-48 h-48 rounded-full border border-accent opacity-10 pointer-events-none" />
+
       <div className="relative z-10 px-6 md:px-16 lg:px-32 w-full max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <motion.div
@@ -71,13 +75,32 @@ export default function Hero() {
               {meta.name}
             </motion.h1>
 
-            <motion.p
+            <motion.div
               variants={item}
-              className="font-mono text-base text-muted tracking-wide mb-4"
+              className="font-mono text-base text-accent tracking-wide mb-6"
             >
-              Offensive Security · VAPT · GPEN Certified · OSCP In Progress
-            </motion.p>
-
+              <TypeAnimation
+                sequence={[
+                  "Hi! 👋, I am Lau Yi Xue.",
+                  1000,
+                  "Hi! 👋, I am Lau Yi Xue. An Offensive Security Researcher.",
+                  1000,
+                  "Hi! 👋, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist.",
+                  1000,
+                  "Hi! 👋, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist. GPEN Certified.",
+                  1000,
+                  "Hi! 👋, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist. GPEN Certified. OSCP In Progress.",
+                  4000,
+                  "",
+                  500,
+                ]}
+                wrapper="span"
+                speed={75}
+                deletionSpeed={95}
+                repeat={Infinity}
+                cursor={true}
+              />
+            </motion.div>
             <motion.p
               variants={item}
               className="font-sans text-lg text-muted max-w-xl leading-relaxed mb-10"
