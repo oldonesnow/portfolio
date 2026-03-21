@@ -4,7 +4,7 @@ export const meta = {
   email: "layixu03@gmail.com",
   linkedin: "https://linkedin.com/in/lau-yi-xue",
   github: "https://github.com/oldonesnow",
-  resume: "/resume.pdf",
+  resume: "/portfolio/resume.pdf",
   location: "Singapore",
   university: "Nanyang Technological University",
   degree: "B.Comp. Computer Science, Specialisation in Cybersecurity",
