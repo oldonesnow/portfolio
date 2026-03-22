@@ -66,7 +66,10 @@ export const projects = [
     year: "2024",
     tags: ["React", "Node.js", "Firebase", "REST API", "Geolocation"],
     methodology: null,
-    images: ["/public/projects/parksg-1.png", "/public/projects/parksg-2.png"],
+    images: [
+      "/portfolio/projects/parksg-1.png",
+      "/portfolio/projects/parksg-2.png",
+    ],
     github: null,
     live: null,
     writeup: null,
