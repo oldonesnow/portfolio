@@ -27,13 +27,26 @@ export default function ProjectCard({ project, index }) {
           delay: index * 0.08,
           ease: [0.22, 1, 0.36, 1],
         }}
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{ once: false, margin: "-60px" }}
         onClick={() => setOpen(true)}
         className={
-          "cursor-pointer border border-gray-200 rounded-lg p-6 bg-white hover:border-accent hover:shadow-md transition-all duration-300 flex flex-col " +
-          (project.featured ? "ring-1 ring-accent ring-opacity-30" : "")
+          "cursor-pointer rounded-xl p-6 flex flex-col transition-all duration-500 relative overflow-hidden " +
+          (project.featured
+            ? "bg-white border-2 border-accent shadow-lg hover:shadow-xl hover:scale-[1.02]"
+            : "bg-white border border-gray-200 hover:border-accent hover:shadow-md")
         }
       >
+        {project.images && project.images.length > 0 && (
+          <div
+            className="absolute inset-0 opacity-0 hover:opacity-10 transition-opacity duration-500 pointer-events-none"
+            style={{
+              backgroundImage: "url(" + project.images[0] + ")",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        )}
+
         <div className="flex items-start justify-between gap-4 mb-4">
           <div className="flex flex-wrap gap-2">
             <span
@@ -45,8 +58,13 @@ export default function ProjectCard({ project, index }) {
               {typeLabels[project.type]}
             </span>
             {project.featured && (
-              <span className="font-mono text-xs px-2 py-0.5 rounded border bg-amber-50 text-amber-700 border-amber-200">
+              <span className="font-mono text-xs px-2 py-0.5 rounded border bg-amber-50 text-amber-700 border-amber-300 font-medium">
                 Featured
+              </span>
+            )}
+            {project.pinned && (
+              <span className="font-mono text-xs px-2 py-0.5 rounded border bg-charcoal text-white border-charcoal">
+                Pinned
               </span>
             )}
           </div>
@@ -55,7 +73,12 @@ export default function ProjectCard({ project, index }) {
           </span>
         </div>
 
-        <h3 className="font-sans text-lg font-semibold text-charcoal mb-3">
+        <h3
+          className={
+            "font-sans font-semibold text-charcoal mb-3 " +
+            (project.featured ? "text-xl" : "text-lg")
+          }
+        >
           {project.title}
         </h3>
         <p className="font-sans text-base text-muted leading-relaxed mb-4 flex-1">
@@ -66,7 +89,7 @@ export default function ProjectCard({ project, index }) {
           {project.tags.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="font-mono text-xs px-2 py-1 bg-surface text-muted border border-gray-200 rounded"
+              className="tag-pop font-mono text-xs px-2 py-1 bg-surface text-muted border border-gray-200 rounded"
             >
               {tag}
             </span>
@@ -79,7 +102,14 @@ export default function ProjectCard({ project, index }) {
         </div>
 
         <div className="mt-auto pt-2 border-t border-gray-100">
-          <span className="font-mono text-xs text-accent">View details</span>
+          <span
+            className={
+              "font-mono text-xs " +
+              (project.featured ? "text-accent font-medium" : "text-muted")
+            }
+          >
+            View details
+          </span>
         </div>
       </motion.div>
 

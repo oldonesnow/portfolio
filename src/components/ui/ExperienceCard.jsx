@@ -51,7 +51,7 @@ export default function ExperienceCard({ job, index }) {
         {job.tags.map((tag) => (
           <span
             key={tag}
-            className="font-mono text-sm px-2 py-1 border border-gray-300 text-muted rounded"
+            className="tag-pop font-mono text-sm px-2 py-1 border border-gray-300 text-muted rounded"
           >
             {tag}
           </span>

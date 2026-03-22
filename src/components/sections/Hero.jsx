@@ -26,6 +26,8 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-base">
+      <div className="hero-glow" />
+
       <div
         className="absolute inset-0 opacity-40 pointer-events-none"
         style={{ transform: "translateY(" + parallax + "px)" }}
@@ -61,12 +63,23 @@ export default function Hero() {
             animate="show"
             className="flex-1 max-w-2xl"
           >
-            <motion.p
+            <motion.div
               variants={item}
-              className="font-mono text-sm text-accent tracking-widest uppercase mb-6"
+              className="flex items-center gap-4 mb-6"
             >
-              Portfolio
-            </motion.p>
+              <p className="font-mono text-sm text-accent tracking-widest uppercase">
+                Portfolio
+              </p>
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-green-300 bg-green-50">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span className="font-mono text-xs text-green-700">
+                  Available from May 2026
+                </span>
+              </div>
+            </motion.div>
 
             <motion.h1
               variants={item}
@@ -81,15 +94,15 @@ export default function Hero() {
             >
               <TypeAnimation
                 sequence={[
-                  "Hi! 👋, I am Lau Yi Xue.",
+                  "👋 Hi, I am Lau Yi Xue.",
                   1000,
-                  "Hi! 👋, I am Lau Yi Xue. An Offensive Security Researcher.",
+                  "👋 Hi, I am Lau Yi Xue. An Offensive Security Researcher.",
                   1000,
-                  "Hi! 👋, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist.",
+                  "👋 Hi, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist.",
                   1000,
-                  "Hi! 👋, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist. GPEN Certified.",
+                  "👋 Hi, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist. GPEN Certified.",
                   1000,
-                  "Hi! 👋, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist. GPEN Certified. OSCP In Progress.",
+                  "👋 Hi, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist. GPEN Certified. OSCP In Progress.",
                   4000,
                   "",
                   500,
@@ -101,6 +114,7 @@ export default function Hero() {
                 cursor={true}
               />
             </motion.div>
+
             <motion.p
               variants={item}
               className="font-sans text-lg text-muted max-w-xl leading-relaxed mb-10"

@@ -8,13 +8,19 @@ const filters = ["All", "Security", "Engineering & ML"];
 export default function Projects() {
   const [active, setActive] = useState("All");
 
-  const filtered = projects.filter((p) => {
-    if (active === "All") return true;
-    if (active === "Security") return p.type === "security";
-    if (active === "Engineering & ML")
-      return p.type === "engineering" || p.type === "ml";
-    return true;
-  });
+  const filtered = projects
+    .filter((p) => {
+      if (active === "All") return true;
+      if (active === "Security") return p.type === "security";
+      if (active === "Engineering & ML")
+        return p.type === "engineering" || p.type === "ml";
+      return true;
+    })
+    .sort((a, b) => {
+      if (a.pinned && !b.pinned) return -1;
+      if (!a.pinned && b.pinned) return 1;
+      return parseInt(b.year) - parseInt(a.year);
+    });
 
   return (
     <div className="dark-section">

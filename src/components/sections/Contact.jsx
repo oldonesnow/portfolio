@@ -1,9 +1,26 @@
 import SectionWrapper from "../ui/SectionWrapper";
 import { motion } from "framer-motion";
 import { meta } from "../../data/meta";
-import { Mail, Linkedin, Github } from "lucide-react";
+import { Mail, Linkedin, Github, Download } from "lucide-react";
 
 export default function Contact() {
+  const downloadVCard = () => {
+    const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Lau Yi Xue
+EMAIL:layixu03@gmail.com
+URL:https://oldonesnow.github.io/portfolio/
+NOTE:Cybersecurity undergraduate at NTU. GPEN Certified. OSCP In Progress.
+END:VCARD`;
+    const blob = new Blob([vcard], { type: "text/vcard" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "LauYiXue.vcf";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <SectionWrapper id="contact" className="bg-base">
       <div className="mb-12">
@@ -29,12 +46,21 @@ export default function Contact() {
           <p className="font-mono text-base text-muted">
             I typically respond within 24 hours.
           </p>
-          <a
-            href={"mailto:" + meta.email}
-            className="font-sans text-base px-6 py-3 bg-charcoal text-white hover:bg-accent transition-colors duration-300 rounded w-fit"
-          >
-            Send an Email
-          </a>
+          <div className="flex flex-wrap gap-4">
+            <a
+              href={"mailto:" + meta.email}
+              className="font-sans text-base px-6 py-3 bg-charcoal text-white hover:bg-accent transition-colors duration-300 rounded w-fit"
+            >
+              Send an Email
+            </a>
+            <button
+              onClick={downloadVCard}
+              className="font-sans text-base px-6 py-3 border border-charcoal text-charcoal hover:border-accent hover:text-accent transition-colors duration-300 rounded flex items-center gap-2"
+            >
+              <Download size={16} />
+              Save Contact
+            </button>
+          </div>
         </motion.div>
 
         <motion.div
@@ -75,7 +101,7 @@ export default function Contact() {
                     LinkedIn
                   </span>
                   <span className="font-sans text-base text-charcoal">
-                    Lau Yi Xue
+                    lau-yi-xue
                   </span>
                 </div>
               </div>
