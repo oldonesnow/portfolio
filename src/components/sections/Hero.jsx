@@ -180,7 +180,7 @@ export default function Hero() {
             <div className="relative">
               <div className="w-56 h-56 md:w-72 md:h-72 rounded-full border-4 border-accent overflow-hidden shadow-xl">
                 <img
-                  src="/portfolio/profile.jpg"
+                  src="/profile.jpg"
                   alt="Lau Yi Xue"
                   className="w-full h-full object-cover object-center"
                 />

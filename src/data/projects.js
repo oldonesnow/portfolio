@@ -116,10 +116,7 @@ export const projects = [
       "Designed a Firebase-backed real-time sync layer to keep availability data fresh without full page reloads",
       "Deployed as a responsive React web app optimised for mobile use on-the-go",
     ],
-    images: [
-      "/portfolio/projects/parksg-1.png",
-      "/portfolio/projects/parksg-2.png",
-    ],
+    images: ["/projects/parksg-1.png", "/projects/parksg-2.png"],
     github: null,
     live: null,
     writeup: null,

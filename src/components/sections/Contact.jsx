@@ -9,7 +9,7 @@ export default function Contact() {
 VERSION:3.0
 FN:Lau Yi Xue
 EMAIL:layixu03@gmail.com
-URL:https://oldonesnow.github.io/portfolio/
+URL:https://oldonesnow.github.io/
 NOTE:Cybersecurity undergraduate at NTU. GPEN Certified. OSCP In Progress.
 END:VCARD`;
     const blob = new Blob([vcard], { type: "text/vcard" });
