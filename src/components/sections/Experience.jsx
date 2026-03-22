@@ -7,7 +7,6 @@ export default function Experience() {
     <div className="dark-section">
       <div className="section-divider" />
       <SectionWrapper id="experience">
-        <span className="section-bg-label">EXPERIENCE</span>
         <div className="mb-16">
           <p className="font-mono text-base text-accent tracking-widest uppercase mb-3">
             Work History

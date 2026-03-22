@@ -13,32 +13,6 @@ import Blog from "./components/sections/Blog";
 export default function App() {
   return (
     <div className="bg-base min-h-screen">
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "400px",
-          height: "100vh",
-          background:
-            "radial-gradient(ellipse at left, rgba(200,146,42,0.15) 0%, transparent 70%)",
-          pointerEvents: "none",
-          zIndex: 9998,
-        }}
-      />
-      <div
-        style={{
-          position: "fixed",
-          top: 0,
-          right: 0,
-          width: "400px",
-          height: "100vh",
-          background:
-            "radial-gradient(ellipse at right, rgba(200,146,42,0.15) 0%, transparent 70%)",
-          pointerEvents: "none",
-          zIndex: 9998,
-        }}
-      />
       <Navbar />
       <main>
         <Hero />
