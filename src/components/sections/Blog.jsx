@@ -1,8 +1,20 @@
 import SectionWrapper from "../ui/SectionWrapper";
 import { blog } from "../../data/blog";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import BlogPostModal from "../ui/BlogPostModal";
 
 export default function Blog() {
+  const [selectedPost, setSelectedPost] = useState(null);
+
+  const handlePostClick = (post) => {
+    if (post.platform === "internal") {
+      setSelectedPost(post);
+    } else if (post.link) {
+      window.open(post.link, "_blank");
+    }
+  };
+
   return (
     <SectionWrapper id="blog" className="bg-base">
       <div className="mb-12">
@@ -16,91 +28,65 @@ export default function Blog() {
         </p>
       </div>
 
-      {blog[0].type === "placeholder" ? (
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: false }}
-          className="border border-dashed border-gray-300 rounded-xl p-16 flex flex-col items-center justify-center text-center gap-4"
-        >
-          <div className="w-12 h-12 rounded-full border border-accent flex items-center justify-center mb-2">
-            <span className="font-mono text-accent text-xl">_</span>
-          </div>
-          <h3 className="font-sans text-2xl font-semibold text-charcoal">
-            Writeups Coming Soon
-          </h3>
-          <p className="font-sans text-base text-muted max-w-md leading-relaxed">
-            I am actively working on CTF writeups, vulnerability research notes,
-            and security tooling documentation. Check back soon.
-          </p>
-          <div className="flex flex-wrap gap-2 mt-4 justify-center">
-            {[
-              "CTF Writeups",
-              "Vulnerability Research",
-              "Security Tooling",
-              "OSCP Notes",
-            ].map((tag) => (
-              <span
-                key={tag}
-                className="font-mono text-sm px-3 py-1 border border-gray-200 text-muted rounded"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-      ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blog.map((post, index) => (
-            <motion.div
-              key={post.id}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: index * 0.08,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              viewport={{ once: false, margin: "-60px" }}
-              className="border border-gray-200 rounded-xl p-6 bg-white hover:border-accent transition-colors duration-300 flex flex-col gap-4"
-            >
-              <div className="flex items-center justify-between">
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="font-mono text-xs px-2 py-0.5 bg-surface text-muted border border-gray-200 rounded"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                {post.date && (
-                  <span className="font-mono text-xs text-muted">
-                    {post.date}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {blog.map((post, index) => (
+          <motion.div
+            key={post.id}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.08,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            viewport={{ once: false, margin: "-60px" }}
+            onClick={() => handlePostClick(post)}
+            className="cursor-pointer border border-gray-200 rounded-xl p-6 bg-white hover:border-accent hover:shadow-md transition-all duration-300 flex flex-col gap-4"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="font-mono text-xs px-2 py-0.5 bg-surface text-muted border border-gray-200 rounded"
+                  >
+                    {tag}
                   </span>
-                )}
+                ))}
               </div>
-              <h3 className="font-sans text-xl font-semibold text-charcoal">
-                {post.title}
-              </h3>
-              <p className="font-sans text-base text-muted leading-relaxed flex-1">
-                {post.description}
-              </p>
-              {post.link && (
-                <a
-                  href={post.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-sm text-accent hover:text-charcoal transition-colors"
-                >
-                  Read more
-                </a>
+              {post.date && (
+                <span className="font-mono text-xs text-muted shrink-0">
+                  {post.date}
+                </span>
               )}
-            </motion.div>
-          ))}
-        </div>
+            </div>
+
+            <h3 className="font-sans text-xl font-semibold text-charcoal leading-snug">
+              {post.title}
+            </h3>
+            <p className="font-sans text-base text-muted leading-relaxed flex-1">
+              {post.description}
+            </p>
+
+            <div className="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+              <span className="font-mono text-xs text-accent">
+                {post.platform === "internal"
+                  ? "Read article"
+                  : "Read on " + post.platform}
+              </span>
+              {post.platform !== "internal" && (
+                <span className="font-mono text-xs text-muted">External</span>
+              )}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {selectedPost && (
+        <BlogPostModal
+          post={selectedPost}
+          onClose={() => setSelectedPost(null)}
+        />
       )}
     </SectionWrapper>
   );
