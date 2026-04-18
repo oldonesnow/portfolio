@@ -2,7 +2,7 @@ export const blog = [
   {
     id: 1,
     title: "Hey, I'm Yi Xue",
-    coverImage: "/public/blogs/intro.jpg",
+    coverImage: "/blogs/intro.jpg",
 
     description:
       "An introduction to who I am, how I got into cybersecurity, and what you can expect from this space.",
