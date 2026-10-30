@@ -65,20 +65,11 @@ export default function Hero() {
           >
             <motion.div
               variants={item}
-              className="flex items-center gap-4 mb-6"
+              className="mb-6"
             >
               <p className="font-mono text-sm text-accent tracking-widest uppercase">
                 Portfolio
               </p>
-              <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-green-300 bg-green-50">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                <span className="font-mono text-xs text-green-700">
-                  Available from May 2026
-                </span>
-              </div>
             </motion.div>
 
             <motion.h1
@@ -102,7 +93,7 @@ export default function Hero() {
                   1000,
                   "👋 Hi, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist. GPEN Certified.",
                   1000,
-                  "👋 Hi, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist. GPEN Certified. OSCP In Progress.",
+                  "👋 Hi, I am Lau Yi Xue. An Offensive Security Researcher. VAPT Specialist. GPEN Certified. OSCP Certified.",
                   4000,
                   "",
                   500,

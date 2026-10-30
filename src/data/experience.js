@@ -1,5 +1,20 @@
 export const experience = [
   {
+    id: 3,
+    company: "DSTA",
+    role: "Cybersecurity Engineer",
+    period: "Aug 2026 - Present",
+    type: "",
+    bullets: [
+      "",
+    ] ,
+    tags: [
+      "",
+      
+    ],
+    badge: null,
+  },
+  {
     id: 1,
     company: "Singtel",
     role: "Cybersecurity Analyst Intern",
@@ -12,7 +27,6 @@ export const experience = [
     ],
     tags: [
       "SIEM",
-      "Splunk",
       "Sentinel",
       "Threat Hunting",
       "Incident Response",
@@ -35,7 +49,6 @@ export const experience = [
       "OT Security",
       "ICS",
       "Risk Assessment",
-      "Splunk",
       "Critical Infrastructure",
       "VAPT",
     ],

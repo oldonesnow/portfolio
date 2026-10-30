@@ -1,6 +1,6 @@
 export const meta = {
   name: "Lau Yi Xue",
-  tagline: "Offensive Security · VAPT · GPEN Certified · OSCP In Progress",
+  tagline: "Offensive Security · VAPT · GPEN · OSCP · Cybersecurity",
   email: "layixu03@gmail.com",
   linkedin: "https://linkedin.com/in/lau-yi-xue",
   github: "https://github.com/oldonesnow",
